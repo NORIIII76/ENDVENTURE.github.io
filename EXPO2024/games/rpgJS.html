@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ENDVENTURE</title>
+	<script src='./map-min.js'></script>
+	<script src='./dialog.js'></script>
+	<script src='./soal_db-min.js'></script>
+	<script src='./jsRPG-min.js'></script>
+	<style>
+		/* Hilangkan scroll pada body */
+		html, body {
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			width: 100%;
+			height: 100%;
+		}
+		/* Buat canvas selalu tetap pada posisinya */
+		#scene {
+			position: fixed;
+			top: 0;
+			left: 0;
+		}
+	</style>
+</head>
+<body>
+	<div align="center" style="overflow:hidden;">
+		<canvas id="scene"></canvas>
+	</div>
+
+	<!-- Tombol Back ke Menu Utama -->
+	<button id="backBtn" style="position:fixed; top:10px; right:10px; padding:10px; background-color:red; color:white; border: none; cursor:pointer;">Back to Menu</button>
+</body>
+<script>
+	var canvas = document.getElementById("scene");
+	var konten = canvas.getContext("2d");
+
+	// Fungsi untuk mengatur ukuran canvas mengikuti layar
+	function resizeCanvas() {
+		canvas.width = window.innerWidth;
+		canvas.height = window.innerHeight;
+		hapusLayar("#333"); // Panggil fungsi untuk membersihkan layar setelah resize
+	}
+
+	// Set ukuran awal canvas
+	resizeCanvas();
+
+	// Set ukuran ulang saat layar diubah
+	window.addEventListener('resize', resizeCanvas);
+
+	var fileGambar = {
+		charImg: "./images/char_sprites.png",
+		tileSet: "./images/tileset.png",
+		bayangan: "./images/char_shadow.png",
+		npc1: "./images/npc_sprites_1.png",
+		npc2: "./images/npc_sprites_2.png",
+		npc3: "./images/npc_sprites_3.png",
+		npc4: "./images/npc_sprites_4.png",
+		npc5: "./images/npc_sprites_5.png",
+		npc6: "./images/npc_sprites_6.png",
+		npc7: "./images/npc_sprites_7.png",
+		enemy0: "./images/enemy_sprites_1.png",
+		enemy1: "./images/enemy_sprites_2.png",
+		enemy2: "./images/enemy_sprites_3.png",
+		enemy3: "./images/enemy_sprites_4.png",
+		enemy4: "./images/enemy_sprites_5.png",
+		enemy5: "./images/enemy_sprites_6.png",
+		avatar: "./images/face_set.png",
+		GUI: "./images/UI_set.png",
+		itemIcon: "./images/item_set.png",
+		bgBattle: "./images/bg_forest.png",
+		cover: "./images/cover_bg.png"
+	};
+	var fileSuara = {
+		bgm1:"./images/audio.mp3",
+	}
+	
+	preload(fileGambar, fileSuara, setup);
+	
+	function setup(){
+		aktifkanKeyboard();		
+		textWarning("Tekan <SPASI> untuk memulai",canvas.width/2, canvas.height-100, "bold 15pt Calibri", "#fff700");
+		halamanJudul(dataGambar.cover, startGame);					
+	}
+	function startGame(){
+		karakter = {img:dataGambar.charImg, shad:dataGambar.bayangan}
+		setMap(1, 16, 8);
+		setNPC(7);
+		jalankanGame();
+	}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+	document.getElementById('backBtn').addEventListener('click', function() {
+	// Tampilkan SweetAlert popup
+	Swal.fire({
+		title: 'Apakah Anda yakin?',
+		text: "Apakah Anda yakin ingin keluar dari game?",
+		icon: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#3085d6',
+		cancelButtonColor: '#d33',
+		confirmButtonText: 'Ya, Kembali',
+		cancelButtonText: 'Batal'
+	}).then((result) => {
+		if (result.isConfirmed) {
+			// Jika pengguna menekan Yes, arahkan ke menu utama
+			window.location.href = '../menugame.html'; // Ganti dengan halaman menu utama
+		}
+	});
+});
+
+</script>
+</html>

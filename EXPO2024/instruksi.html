@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instruksi Bermain -- ENDVENTURE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #000000;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Styling untuk video background */
+        #bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Mengisi seluruh layar */
+            z-index: -1; /* Video berada di belakang konten */
+        }
+        
+        .btn-instructions {
+            display: block;
+            margin: 0 auto;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            background-color: #32cd32;
+            color: #fff;
+            transition: background-color 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-instructions:hover {
+            background-color: #228b22;
+            color: #fff;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .step-icon {
+            margin-right: 15px;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .modal-footer button {
+            display: flex;
+            align-items: center;
+        }
+        
+        .modal-footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <video id="bg-video" autoplay muted loop>
+        <source src="./asset/background.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <!-- Tombol untuk membuka instruksi -->
+    <button class="btn btn-instructions" data-bs-toggle="modal" data-bs-target="#instructionsModal">
+        <i class="fas fa-info-circle fa-lg"></i> Lihat Instruksi
+    </button>
+
+    <!-- Modal Instruksi -->
+    <div class="modal fade" id="instructionsModal" tabindex="-1" aria-labelledby="instructionsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="instructionsModalLabel">Instruksi Bermain</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-bullseye fa-lg"></i>
+                        </div>
+                        <div class="step-content">
+                            <h5>Langkah 1: Tujuan</h5>
+                            <p>Tujuan kamu adalah menjawab sebanyak mungkin pertanyaan dengan benar dalam batas waktu. Setiap jawaban yang benar akan memberikan karakter kamu +GOLD dan +EXP.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-gamepad fa-lg"></i>
+                        </div>
+                        <div class="step-content">
+                            <h5>Langkah 2: Kontrol</h5>
+                            <p>Gunakan tombol spasi untuk enter dan gunakan tombol Home, PgUp, PgDn, dan End untuk mengarahkan karakter.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-coins fa-lg"></i>
+                        </div>
+                        <div class="step-content">
+                            <h5>Langkah 3: Rewards</h5>
+                            <p>Setiap jawaban yang benar akan memberimu rewards +GOLD dan +EXP kepada karakter.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-clock fa-lg"></i>
+                        </div>
+                        <div class="step-content">
+                            <h5>Langkah 4: Waktu</h5>
+                            <p>Perhatikan timer! Kamu memiliki waktu terbatas untuk menjawab setiap pertanyaan, jadi berpikirlah dengan cepat tapi hati-hati. Jika pertanyaan tidak dijawab atau jawaban salah, karakter kamu akan diserang oleh monster.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-box-open fa-lg"></i>
+                        </div>
+                        <div class="step-content">
+                            <h5>Langkah 5: Temukan Item</h5>
+                            <p>Temukan item penting seperti ramuan obat dan buku yang tersebar sepanjang permainan untuk membantu karaktermu.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-user fa-lg"></i>
+                        </div>
+                        <div class="step-content">
+                            <h5>Langkah 6: Percakapan dengan NPC</h5>
+                            <p>Bicaralah dengan NPC untuk mendapatkan petunjuk penting dan membuka misi atau cerita tambahan.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-heart fa-lg"></i>
+                        </div>
+                        <div class="step-content">
+                            <h5>Langkah 7: Perhatikan Nyawamu!</h5>
+                            <p>Perhatikan bar darahmu! Jika darah habis, permainan berakhir dan kamu gagal.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="fas fa-times-circle fa-lg"></i>&nbsp;Close for the instructions
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                        <a href="./games/rpgJS.html"><i class="fas fa-play-circle fa-lg"></i> Play</a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>
