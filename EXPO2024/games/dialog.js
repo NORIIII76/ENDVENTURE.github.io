@@ -6,9 +6,9 @@ awal_cerita[2] = [0, "Lebih baik, aku berkeliling untuk mencari tahu", "close"];
 
 var talk_1 = [];
 talk_1[0] = [0, "Permisi pak... dimanakah ini?", "next"];
-talk_1[1] = [5, "Ini desa pelangi, kamu berasal dari mana?", "next"];
+talk_1[1] = [5, "Ini desa Ketpi, kamu berasal dari mana?", "next"];
 talk_1[2] = [0, "Saya dari Gunungputri pak", "next"];
-talk_1[3] = [5, "Gunungputri, mmmmm.... saya belum pernah dengar", "next"];
+talk_1[3] = [5, "Gunungputri ?, mmmmm.... saya belum pernah dengar", "next"];
 talk_1[4] = [5, "Cobalah kamu ke resto, mungkin kamu bisa bertanya-tanya", "next"];
 talk_1[5] = [5, "Tapi, kamu jangan pergi ke hutan! Disana banyak monster", "next"];
 talk_1[6] = [0, "Baik pak, terimakasih infonya", "close"];

@@ -10,7 +10,7 @@
     overflow: hidden; /* Agar daun tidak keluar dari area layar */
 }
 .w-full img{
-    margin-top: 21rem;
+    margin-top: 25rem;
     width: 16rem;
 }
 
@@ -76,12 +76,9 @@
     margin-top: 1rem;
 }
 
-
-
-
 .scrolling-text {
     position: absolute;
-    top: 20rem; 
+    top: 23rem; 
     left: 53rem;
     max-width: 17rem; /* Batas lebar maksimum */
     height: auto;
@@ -92,7 +89,6 @@
     font-size: 1rem;
     font-weight: bold;
     color: #433e3e;
-    mix-blend-mode: difference;
     box-shadow: 11px 9px 109px -6px rgba(0,0,0,0.67);
     white-space: normal; /* Izinkan teks membungkus */
     word-wrap: break-word; /* Bungkus kata jika terlalu panjang */
