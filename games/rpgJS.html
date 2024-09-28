@@ -61,11 +61,26 @@
 	
 	preload(fileGambar, fileSuara, setup);
 	
-	function setup(){
-		aktifkanKeyboard();		
-		textWarning("Tekan <SPASI> untuk memulai",canvas.width/2, canvas.height-100, "bold 15pt Calibri", "#fff700");
-		halamanJudul(dataGambar.cover, startGame);					
-	}
+	function setup() {
+    aktifkanKeyboard();
+    textWarning("Tekan <SPASI> atau sentuh layar untuk memulai", canvas.width / 2, canvas.height - 100, "bold 15pt Calibri", "#fff700");
+    
+    // Event listener untuk sentuhan
+    canvas.addEventListener("touchstart", function (event) {
+        event.preventDefault(); // Mencegah scrolling pada perangkat mobile
+        startGame();
+    });
+
+    // Event listener untuk keyboard
+    document.addEventListener("keydown", function (event) {
+        if (event.code === "Space") {
+            startGame();
+        }
+    });
+    
+    halamanJudul(dataGambar.cover, startGame);
+}
+
 	function startGame(){
 		karakter = {img:dataGambar.charImg, shad:dataGambar.bayangan}
 		setMap(1, 16, 8);
